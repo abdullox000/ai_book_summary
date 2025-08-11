@@ -12,6 +12,9 @@ _BookSummaryModel _$BookSummaryModelFromJson(Map<String, dynamic> json) =>
       rating: (json['rating'] as num?)?.toInt(),
       author: json['author'] as String?,
       title: json['title'] as String?,
+      createdAt: json['createdAt'] == null
+          ? null
+          : DateTime.parse(json['createdAt'] as String),
     );
 
 Map<String, dynamic> _$BookSummaryModelToJson(_BookSummaryModel instance) =>
@@ -20,4 +23,5 @@ Map<String, dynamic> _$BookSummaryModelToJson(_BookSummaryModel instance) =>
       'rating': instance.rating,
       'author': instance.author,
       'title': instance.title,
+      'createdAt': instance.createdAt?.toIso8601String(),
     };

@@ -1,6 +1,5 @@
 import 'package:ai_book_summary_app/core/app/di/injection_container.dart';
 import 'package:ai_book_summary_app/features/book/presentation/screens/book_summary_screen.dart';
-import 'package:ai_book_summary_app/features/book/presentation/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
@@ -16,8 +15,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      getPages: [GetPage(name: "/history", page: () => HistoryScreen())],
-      home: SummaryScreen(),
+      debugShowCheckedModeBanner: false,
+      home: BookSummaryScreen(),
     );
   }
 }

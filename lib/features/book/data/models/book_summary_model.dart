@@ -10,6 +10,7 @@ abstract class BookSummaryModel with _$BookSummaryModel {
     int? rating,
     String? author,
     String? title,
+    DateTime? createdAt
   }) = _BookSummaryModel;
 
   factory BookSummaryModel.fromJson(Map<String, dynamic> json) =>

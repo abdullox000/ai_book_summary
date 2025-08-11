@@ -8,6 +8,7 @@ extension BookMapper on BookSummaryModel {
       summary: summary,
       author: author,
       title: title,
+      createdAt: createdAt
     );
   }
 }

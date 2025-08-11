@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BookSummaryModel {
 
- String? get summary; int? get rating; String? get author; String? get title;
+ String? get summary; int? get rating; String? get author; String? get title; DateTime? get createdAt;
 /// Create a copy of BookSummaryModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $BookSummaryModelCopyWith<BookSummaryModel> get copyWith => _$BookSummaryModelCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookSummaryModel&&(identical(other.summary, summary) || other.summary == summary)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.author, author) || other.author == author)&&(identical(other.title, title) || other.title == title));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BookSummaryModel&&(identical(other.summary, summary) || other.summary == summary)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.author, author) || other.author == author)&&(identical(other.title, title) || other.title == title)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,summary,rating,author,title);
+int get hashCode => Object.hash(runtimeType,summary,rating,author,title,createdAt);
 
 @override
 String toString() {
-  return 'BookSummaryModel(summary: $summary, rating: $rating, author: $author, title: $title)';
+  return 'BookSummaryModel(summary: $summary, rating: $rating, author: $author, title: $title, createdAt: $createdAt)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $BookSummaryModelCopyWith<$Res>  {
   factory $BookSummaryModelCopyWith(BookSummaryModel value, $Res Function(BookSummaryModel) _then) = _$BookSummaryModelCopyWithImpl;
 @useResult
 $Res call({
- String? summary, int? rating, String? author, String? title
+ String? summary, int? rating, String? author, String? title, DateTime? createdAt
 });
 
 
@@ -65,13 +65,14 @@ class _$BookSummaryModelCopyWithImpl<$Res>
 
 /// Create a copy of BookSummaryModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? summary = freezed,Object? rating = freezed,Object? author = freezed,Object? title = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? summary = freezed,Object? rating = freezed,Object? author = freezed,Object? title = freezed,Object? createdAt = freezed,}) {
   return _then(_self.copyWith(
 summary: freezed == summary ? _self.summary : summary // ignore: cast_nullable_to_non_nullable
 as String?,rating: freezed == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
 as int?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? summary,  int? rating,  String? author,  String? title)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? summary,  int? rating,  String? author,  String? title,  DateTime? createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BookSummaryModel() when $default != null:
-return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
+return $default(_that.summary,_that.rating,_that.author,_that.title,_that.createdAt);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? summary,  int? rating,  String? author,  String? title)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? summary,  int? rating,  String? author,  String? title,  DateTime? createdAt)  $default,) {final _that = this;
 switch (_that) {
 case _BookSummaryModel():
-return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
+return $default(_that.summary,_that.rating,_that.author,_that.title,_that.createdAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -197,10 +198,10 @@ return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? summary,  int? rating,  String? author,  String? title)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? summary,  int? rating,  String? author,  String? title,  DateTime? createdAt)?  $default,) {final _that = this;
 switch (_that) {
 case _BookSummaryModel() when $default != null:
-return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
+return $default(_that.summary,_that.rating,_that.author,_that.title,_that.createdAt);case _:
   return null;
 
 }
@@ -212,13 +213,14 @@ return $default(_that.summary,_that.rating,_that.author,_that.title);case _:
 @JsonSerializable()
 
 class _BookSummaryModel implements BookSummaryModel {
-  const _BookSummaryModel({this.summary, this.rating, this.author, this.title});
+  const _BookSummaryModel({this.summary, this.rating, this.author, this.title, this.createdAt});
   factory _BookSummaryModel.fromJson(Map<String, dynamic> json) => _$BookSummaryModelFromJson(json);
 
 @override final  String? summary;
 @override final  int? rating;
 @override final  String? author;
 @override final  String? title;
+@override final  DateTime? createdAt;
 
 /// Create a copy of BookSummaryModel
 /// with the given fields replaced by the non-null parameter values.
@@ -233,16 +235,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookSummaryModel&&(identical(other.summary, summary) || other.summary == summary)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.author, author) || other.author == author)&&(identical(other.title, title) || other.title == title));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BookSummaryModel&&(identical(other.summary, summary) || other.summary == summary)&&(identical(other.rating, rating) || other.rating == rating)&&(identical(other.author, author) || other.author == author)&&(identical(other.title, title) || other.title == title)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,summary,rating,author,title);
+int get hashCode => Object.hash(runtimeType,summary,rating,author,title,createdAt);
 
 @override
 String toString() {
-  return 'BookSummaryModel(summary: $summary, rating: $rating, author: $author, title: $title)';
+  return 'BookSummaryModel(summary: $summary, rating: $rating, author: $author, title: $title, createdAt: $createdAt)';
 }
 
 
@@ -253,7 +255,7 @@ abstract mixin class _$BookSummaryModelCopyWith<$Res> implements $BookSummaryMod
   factory _$BookSummaryModelCopyWith(_BookSummaryModel value, $Res Function(_BookSummaryModel) _then) = __$BookSummaryModelCopyWithImpl;
 @override @useResult
 $Res call({
- String? summary, int? rating, String? author, String? title
+ String? summary, int? rating, String? author, String? title, DateTime? createdAt
 });
 
 
@@ -270,13 +272,14 @@ class __$BookSummaryModelCopyWithImpl<$Res>
 
 /// Create a copy of BookSummaryModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? summary = freezed,Object? rating = freezed,Object? author = freezed,Object? title = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? summary = freezed,Object? rating = freezed,Object? author = freezed,Object? title = freezed,Object? createdAt = freezed,}) {
   return _then(_BookSummaryModel(
 summary: freezed == summary ? _self.summary : summary // ignore: cast_nullable_to_non_nullable
 as String?,rating: freezed == rating ? _self.rating : rating // ignore: cast_nullable_to_non_nullable
 as int?,author: freezed == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as String?,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String?,
+as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as DateTime?,
   ));
 }
 
