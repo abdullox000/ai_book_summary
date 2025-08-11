@@ -11,6 +11,7 @@ Future<void> initDI() async {
 
 Future<void> _initBook() async {
   locator
+    ..registerLazySingleton<StorageService>(() => StorageService())
     ..registerLazySingleton<BookRemoteDataSource>(
       () => BookRemoteDataSourceImpl(dio: locator<Dio>()),
     )
@@ -23,6 +24,7 @@ Future<void> _initBook() async {
     ..registerLazySingleton<BookController>(
       () => BookController(
         getBookSummaryUsecase: locator<GetBookSummaryUsecase>(),
+        storageService: locator<StorageService>(),
       ),
     );
 }

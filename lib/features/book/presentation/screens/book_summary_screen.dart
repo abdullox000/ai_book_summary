@@ -85,7 +85,6 @@ class _BookSummaryScreenState extends State<BookSummaryScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    // Asosiy orqa fon uchun gradient ranglar
     final gradientColors = [Colors.blue.shade700, Colors.purple.shade700];
 
     return Scaffold(
@@ -93,7 +92,10 @@ class _BookSummaryScreenState extends State<BookSummaryScreen> {
       backgroundColor: theme.colorScheme.surface,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Text('Book Summary', style: TextStyle(color: Colors.white),),
+        title: const Text(
+          'Book Summary',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -182,7 +184,10 @@ class _BookSummaryScreenState extends State<BookSummaryScreen> {
                                     : const Icon(Icons.auto_awesome, color: Colors.white),
                                 label: Text(
                                   c.isLoading.value ? 'Summarizing...' : 'Summarize',
-                                  style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.deepPurple.shade400, // Tugma rangi
@@ -299,8 +304,7 @@ class _BookSummaryScreenState extends State<BookSummaryScreen> {
                         final String author = (e.author ?? '').toString();
                         final String summary = (e.summary ?? '').toString();
                         final int rating = int.tryParse('${e.rating}') ?? 0;
-                        final DateTime createdAt =
-                            e.createdAt ?? DateTime.now();
+                        final DateTime createdAt = e.createdAt ?? DateTime.now();
 
                         return _HistoryTile(
                           title: title,
